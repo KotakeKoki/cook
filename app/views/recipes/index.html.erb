@@ -1,0 +1,7 @@
+<h1>投稿されたレシピ一覧</h1>
+
+<ul>
+  <% @recipes.each do|recipe| %>
+    <li><%= link_to recipe.title, recipe %> : <%= recipe.ingridient_1 %>,<%= recipe.ingridient_2 %></li>
+  <% end %>
+  </ul>

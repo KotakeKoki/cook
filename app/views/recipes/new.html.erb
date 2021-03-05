@@ -1,0 +1,23 @@
+<h1>レシピ投稿ページ</h1>
+
+<%= form_with(model: @recipe, local: true)do |f| %>
+  <%= f.label :title, "レシピ名" %>
+  <%= f.text_field :title %>
+  
+  <%= f.label :ingridient_1, "材料1" %>
+  <%= f.text_field :ingridient_1 %>
+  
+  <%= f.label :ingridient_2, "材料2" %>
+  <%= f.text_field :ingridient_2 %>
+  
+  <%= f.label :description, "このレシピの特徴" %>
+  <%= f.text_field :description %>
+  
+  <%= f.label :sentence, "作り方" %>
+  <%= f.text_field :sentence %>
+  
+  <%= f.submit "投稿" %>
+  <% end %>
+  
+  <%= link_to "一覧に戻る",recipes_path %>
+    

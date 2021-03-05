@@ -1,0 +1,11 @@
+<h1></h1>
+<ul>
+  <li>レシピ名<br><%= @recipe.title %></li>
+  <li>材料1<br><%= @recipe.ingridient_1 %></li>
+  <li>材料2<br><%= @recipe.ingridient_2 %></li>
+  <li>このレシピの特徴<br><%= @recipe.description %></li>
+  <li>作り方<br><%= @recipe.sentence %></li>
+</ul>
+<%= link_to "レシピ一覧に戻る", recipes_path %>
+<%= link_to "レシピを編集する", edit_recipe_path(@recipe) %>
+<%= link_to "レシピを削除する", @recipe,method: :delete, data:{ confirm: "本当に削除してよろしいですか？"}%>
