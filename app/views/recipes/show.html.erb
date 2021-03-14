@@ -1,5 +1,5 @@
 <% if logged_in? && current_user.id == @recipe.user_id %>
-<%= link_to "#{@user.name}", user_path(@user) %>さんのレシピ
+<%= link_to "#{@recipe.user.name}", user_path(@recipe.user_id) %>さんのレシピ
 <ul>
   <li>レシピ名<br><%= @recipe.title %></li>
   <li>材料1<br><%= @recipe.ingridient_1 %></li>
@@ -11,7 +11,7 @@
 <%= link_to "レシピを編集する", edit_recipe_path(@recipe) %>
 <%= link_to "レシピを削除する", @recipe,method: :delete, data:{ confirm: "本当に削除してよろしいですか？"}%>
 <% else %>
-<%= link_to "#{@user.name}", user_path(@user) %>さんのレシピ
+<%= link_to "#{@recipe.user.name}", user_path(@recipe.user_id) %>さんのレシピ
 <ul>
   <li>レシピ名<br><%= @recipe.title %></li>
   <li>材料1<br><%= @recipe.ingridient_1 %></li>
