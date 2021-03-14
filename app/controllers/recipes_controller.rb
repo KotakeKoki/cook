@@ -1,10 +1,13 @@
 class RecipesController < ApplicationController
+  before_action :require_user_logged_in, only: [:new,:create,]
+  before_action :correct_user, only: [:destroy, :edit, :update]
 def index
   @recipes = Recipe.all
 end
 
 def show
-  @recipe = Recipe.find(params[:id])
+  @recipe = Recipe.find(params[:id]) 
+  @user = User.find(params[:id])
 end
 
 def new
@@ -12,11 +15,10 @@ def new
 end
 
 def create
-  @recipe = Recipe.new(recipe_params)
-  
+  @recipe = current_user.recipes.build(recipe_params)
   if @recipe.save
     flash[:success] = "レシピが投稿されました"
-    redirect_to @recipe
+    redirect_to root_url
   else
     flash.now[:danger] = "レシピが投稿されませんでした"
     render :new
@@ -50,6 +52,14 @@ end
 private
 
 def recipe_params
-  params.require(:recipe).permit(:title, :ingridient_1, :ingridient_2, :description, :sentence)
+  params.require(:recipe).permit(:title, :ingridient_1, :ingridient_2, :description, :sentence, :user_id)
 end
+
+def correct_user
+  @recipe = current_user.recipes.find_by(id: params[:id])
+  unless @recipe
+    redirect_to root_url
+  end
+end
+
 end

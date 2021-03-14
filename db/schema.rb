@@ -34,4 +34,5 @@ ActiveRecord::Schema.define(version: 2021_03_13_103411) do
     t.string "password_digest"
   end
 
+  add_foreign_key "recipes", "users"
 end

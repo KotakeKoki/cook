@@ -1,7 +1,8 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if logged_in? %>
-        <li class="nav-item"><%= link_to "マイページ",users_show_path %></li>
+        <li class="nav-item"><%= link_to "ロゴ",root_path %></li>
+        <li class="nav-item"><%= link_to "マイページ",user_path(current_user) %></li>
         <li class="nav-item"><%= link_to "レシピの投稿",new_recipe_path %></li>
         <li class="nav-item"><%= link_to "ログアウト",logout_path, method: :delete %></li>
         <% else %>

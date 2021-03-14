@@ -7,7 +7,8 @@ class CreateRecipes < ActiveRecord::Migration[5.2]
       t.string :ingridient_2
       t.text :description
       t.text :sentence
-      t.references :user
+      t.references :user, foreign_key: true
+
 
       t.timestamps
     end
