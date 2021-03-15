@@ -1,4 +1,8 @@
 <h1><%=@user.name %>さんが投稿したレシピ一覧</h1>
+<%= render 'relationships/follow_button', user: @user %>
+
+<li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー  <span class="badge badge-secondary"></span></a></li>
+<li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー  <span class="badge badge-secondary"></span></a></li>
 
     <ul>
   <% @recipes.each do|recipe| %>

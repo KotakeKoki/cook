@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
-  get 'users/index'
-  get 'users/show'
-  get 'users/new'
-  get 'users/create'
+  get 'relationships/create'
+  get 'relationships/destroy'
   root to: 'recipes#index'
-  resources :recipes
   
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
@@ -15,7 +9,15 @@ Rails.application.routes.draw do
 
   
   get 'signup', to: 'users#new'
-  resources :users, only: [:index, :show, :create]
+  resources :users, only: [:index, :show, :create] do
+    member do
+      get :followings
+      get :followers
+    end
+  end
+
+  resources :recipes
+  resources :relationships, only: [:create, :destroy]
   
 
 end
