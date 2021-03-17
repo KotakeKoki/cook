@@ -1,6 +1,12 @@
 <% if logged_in? && current_user.id == @recipe.user_id %>
 <%= link_to "#{@recipe.user.name}", user_path(@recipe.user_id) %>さんのレシピ
 <ul>
+  <li>
+   <% if @recipe.image? %>
+      <%= image_tag @recipe.image.url, :size => '300x300' %>
+   <% else %>
+      <%= image_tag "/assets/default.png", :size => '300x300' %>
+   <% end %></li>
   <li>レシピ名<br><%= @recipe.title %></li>
   <li>材料1<br><%= @recipe.ingridient_1 %></li>
   <li>材料2<br><%= @recipe.ingridient_2 %></li>
@@ -13,6 +19,13 @@
 <% else %>
 <%= link_to "#{@recipe.user.name}", user_path(@recipe.user_id) %>さんのレシピ
 <ul>
+  <li><%= form_for(@recipe) do |f| %>
+   <% if @recipe.image? %>
+      <%= image_tag @recipe.image.url %>
+   <% else %>
+      <%= image_tag "/assets/default.png", :size => '300x300' %>
+   <% end %>
+<% end %></li>
   <li>レシピ名<br><%= @recipe.title %></li>
   <li>材料1<br><%= @recipe.ingridient_1 %></li>
   <li>材料2<br><%= @recipe.ingridient_2 %></li>

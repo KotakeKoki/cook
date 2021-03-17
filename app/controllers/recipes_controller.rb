@@ -51,7 +51,7 @@ end
 private
 
 def recipe_params
-  params.require(:recipe).permit(:title, :ingridient_1, :ingridient_2, :description, :sentence, :user_id)
+  params.require(:recipe).permit(:title, :ingridient_1, :ingridient_2, :description, :sentence, :user_id, :image)
 end
 
 def correct_user

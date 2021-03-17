@@ -1,6 +1,9 @@
 <h1>レシピ編集ページ</h1>
 
 <%= form_with(model: @recipe, local: true)do |f| %>
+  <%= f.label :image, "写真" %>
+  <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+  
   <%= f.label :title, "レシピ名" %>
   <%= f.text_field :title %>
   

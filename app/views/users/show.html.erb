@@ -1,6 +1,13 @@
 <%=link_to "#{@user.name}",user_path(@user) %>さん
 <%= render 'relationships/follow_button', user: @user %>
 
+<%= form_for(@user) do |f| %>
+   <% if @user.image? %>
+      <%= image_tag @user.image.url %>
+   <% else %>
+      <%= image_tag "/assets/default.png",:size => '500x500' %>
+   <% end %>
+<% end %>
 
 <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">投稿したレシピ一覧  <span class="badge badge-secondary"></span></a></li>
 <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー  <span class="badge badge-secondary"></span></a></li>
