@@ -7,7 +7,7 @@
             <%= link_to user.name,user_path(user) %>
           </div>
           <div>
-            <p><%= link_to 'View profile', user_path(user) %></p>
+            <%= render 'relationships/follow_button', user: user %>
           </div>
         </div>
       </li>
