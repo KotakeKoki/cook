@@ -57,7 +57,7 @@ end
 def correct_user
   @recipe = current_user.recipes.find_by(id: params[:id])
   unless @recipe
-    redirect_to root_url
+  redirect_to root_url
   end
 end
 

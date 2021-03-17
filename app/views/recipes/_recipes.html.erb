@@ -1,0 +1,14 @@
+<% if recipes.any? %>
+  <ul class="list-unstyled">
+    <% recipes.each do |recipe| %>
+      <li class="media">
+        <div class="media-body">
+          <div>
+            <%= link_to recipe.title,recipe_path(recipe.id) %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate recipes %>
+<% end %>
