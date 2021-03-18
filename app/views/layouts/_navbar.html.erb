@@ -1,14 +1,24 @@
+  <header class="mb-4">
+  <nav class="navbar navbar-expand-sm navbar-dark", style="background-color:#FBB305;">
+    <a class="navbar-brand" href="/">限界メシ</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if logged_in? %>
-        <li class="nav-item"><%= link_to "ロゴ",root_path %></li>
-        <li class="nav-item"><%= link_to "マイページ",user_path(current_user) %></li>
-        <li class="nav-item"><%= link_to "レシピの投稿",new_recipe_path %></li>
-        <li class="nav-item"><%= link_to "ログアウト",logout_path, method: :delete %></li>
+        <li class="nav-item"><%= link_to "ユーザー情報編集",edit_user_path(current_user) %></li>&nbsp;&nbsp;&nbsp;
+        <li class="nav-item"><%= link_to "マイページ",user_path(current_user) %></li>&nbsp;&nbsp;&nbsp;
+        <li class="nav-item"><%= link_to "レシピの投稿",new_recipe_path %></li>&nbsp;&nbsp;&nbsp;
+        <li class="nav-item"><%= link_to "ログアウト",logout_path, method: :delete %></li>&nbsp;&nbsp;&nbsp;
         <% else %>
-        　<li class="nav-item"><%= link_to "ロゴ",root_path %></li>
-          <li class="nav-item"><%= link_to "新規登録",signup_path %></li>
-          <li class="nav-item"><%= link_to "ログイン",login_path %></li>
+          <li class="nav-item"><%= link_to "新規登録",signup_path %></li>&nbsp;&nbsp;&nbsp;
+          <li class="nav-item"><%= link_to "ログイン",login_path %></li>&nbsp;&nbsp;&nbsp;
         <% end %>
       </ul>
     </div>
+  </nav>
+</header>
+    
+
+ 

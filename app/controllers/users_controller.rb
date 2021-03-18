@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show,]
+  before_action :require_user_logged_in, only: [:index, :show, :edits]
   def index
     @users = User.order(id: :desc).page(params[:page]).per(25)
   end
@@ -13,19 +13,22 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
-  
-  
-def update
-  @user= User.find(params[:id])
-  
-  if @user.update(user_params)
-    flash[:success] = "プロフィールを編集しました"
-    redirect_to @user
-  else
-    flash.now[:danger] = "プロフィールが編集できませんでした"
-    render :edit
+  def edit
+  @user = User.find(params[:id])
   end
-end
+  
+  
+  def update
+    @user= User.find(params[:id])
+  
+    if @user.update(user_params)
+      flash[:success] = "プロフィールを編集しました"
+      redirect_to @user
+    else
+      flash.now[:danger] = "プロフィールが編集できませんでした"
+      render :edit
+    end
+  end
 
   def create
     @user = User.new(user_params)

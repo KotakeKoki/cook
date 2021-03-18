@@ -1,7 +1,7 @@
 <% if logged_in? %>
 <% if current_user.favoriting?(recipe) %>
-  <%= link_to "お気に入り解除する", unfavorites_recipe_path(recipe_id: @recipe.id), method: :delete, class:"btn btn-primary like-btn" %>
+  <%= link_to "お気に入り解除する", unfavorites_recipe_path(recipe_id: @recipe.id), method: :delete, class:"btn btn-primary like-btn"%>
 <% else %>
-  <%= link_to "お気に入り登録する", favorites_recipe_path(recipe_id: @recipe.id), method: :post, class:"btn btn-primary like-btn" %>
+  <%= link_to "お気に入り登録する", favorites_recipe_path(recipe_id: @recipe.id), method: :post, class:"btn btn-primary like-btn"%>
 <% end %>
 <% end %>

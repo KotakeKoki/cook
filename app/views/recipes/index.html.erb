@@ -1,7 +1,5 @@
+<div class="text-left">
 <h1>投稿されたレシピ一覧</h1>
+</div>
 
-<ul>
-  <% @recipes.each do|recipe| %>
-    <li><%= link_to recipe.title, recipe_path(recipe.id) %> : <%= recipe.ingridient_1 %>,<%= recipe.ingridient_2 %></li>
-  <% end %>
-  </ul>
+<%= render "recipes",recipes: @recipes%>
