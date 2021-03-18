@@ -5,7 +5,7 @@
         <% if @user.image? %>
           <%= image_tag @user.image.url, width: '100%', height: '100%' %>
             <% else %>
-          <div= image_tag asset_path('default.jpg') width: '100%', height: '100%'></div>
+          <img src="<%= asset_path 'default.jpg' %>" alt="" width="100%" height="100%" />
          <% end %>
          <br>
         <h3 class="card-title"><%=link_to "#{@user.name}",user_path(@user) %>さんのページ</h3>
