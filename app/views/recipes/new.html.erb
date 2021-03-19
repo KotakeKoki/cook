@@ -26,12 +26,12 @@
   
   <div class="form-group">
   <%= f.label :description, "このレシピの特徴" %>
-  <%= f.text_area :description %>
+  <%= f.text_area :description, class: "form-control" %>
   </div>
   
   <div class="form-group">
   <%= f.label :sentence, "作り方" %>
-  <%= f.text_area :sentence %>
+  <%= f.text_area :sentence, class: "form-control" %>
   </div>
   
   <%= f.submit "投稿" %>

@@ -9,8 +9,8 @@
   <li>レシピ名<br><%= @recipe.title %></li>
   <li>材料1<br><%= @recipe.ingridient_1 %></li>
   <li>材料2<br><%= @recipe.ingridient_2 %></li>
-  <li>このレシピの特徴<br><%= @recipe.description %></li>
-  <li>作り方<br><%= @recipe.sentence %></li>
+  <li>このレシピの特徴<br><%= safe_join(@recipe.description.split("\n"),tag(:br)) %></li>
+  <li>作り方<br><%= safe_join(@recipe.sentence.split("\n"),tag(:br)) %></li>
 </ul>
 <%= link_to "レシピ一覧に戻る", recipes_path %>
 <%= link_to "レシピを編集する", edit_recipe_path(@recipe) %>
@@ -28,8 +28,8 @@
   <li>レシピ名<br><%= @recipe.title %></li>
   <li>材料1<br><%= @recipe.ingridient_1 %></li>
   <li>材料2<br><%= @recipe.ingridient_2 %></li>
-  <li>このレシピの特徴<br><%= @recipe.description %></li>
-  <li>作り方<br><%= @recipe.sentence %></li>
+  <li>このレシピの特徴<br><%= safe_join(@recipe.description.split("\n"),tag(:br)) %></li>
+  <li>作り方<br><%= safe_join(@recipe.sentence.split("\n"),tag(:br)) %> </li>
 </ul>
 <%= link_to "レシピ一覧に戻る", recipes_path %>
 <% end %>
