@@ -5,8 +5,9 @@ class Recipe < ApplicationRecord
     
     mount_uploader :image, ImageUploader
     
-    validates :title, presence: true, length: { maximum: 255 }
-    validates :ingridient_1, presence: true, length: { maximum: 255 }
-    validates :ingridient_2, presence: true, length: { maximum: 255 }
+    validates :title, presence: true, length: { maximum: 15 }
+    validates :ingridient_1, presence: true, length: { maximum: 15 }
+    validates :ingridient_2, presence: true, length: { maximum: 15 }
+    validates :description,presence: true, length: { maximum: 120 }
     validates :sentence, presence: true, length: { maximum: 255 }
 end

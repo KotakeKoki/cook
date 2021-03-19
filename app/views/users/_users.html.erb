@@ -5,9 +5,9 @@
         <div class="media-body">
           <div>
       <% if user.image? %>
-        <%= image_tag user.image.url, :size => '100x100'  %>
+        <%= image_tag user.image.url, :size => '100x100',alt: "profile" %>
       <% else %>
-      <%= image_tag "/assets/default.jpg", :size => '100x100' %>
+      <%= image_tag "/assets/default.jpg", :size => '100x100',alt: "profile"  %>
       <% end %>
             <%= link_to user.name,user_path(user) %>
           </div>
