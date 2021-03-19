@@ -1,11 +1,11 @@
 <% if logged_in? && current_user.id == @recipe.user_id %>
 <%= link_to "#{@recipe.user.name}", user_path(@recipe.user_id) %>さんのレシピ
 <ul>
-   <li id="none"></li>
+   <li id="none">
      <% if @recipe.image? %>
-      <%= image_tag (@recipe.image.url),alt: "アイコン",size: "300x300" %>
+     <%= image_tag (@recipe.image.url),alt: "アイコン",size: "300x300" %>
    <% else %>
-      <%= image_tag "/assets/default1.jpg", size: '300x300' %>
+      <%= image_tag "/assets/default1.jpg",alt: "アイコン", size: '300x300' %>
    <% end %>
    </li>
   <li>レシピ名<br><%= @recipe.title %></li>
