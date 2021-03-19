@@ -20,7 +20,7 @@
 <% else %>
 <%= link_to "#{@recipe.user.name}", user_path(@recipe.user_id) %>さんのレシピ
 <ul>
-  <li>
+  <li id="none">
   <%= form_for(@recipe) do |f| %>
    <% if @recipe.image? %>
       <%= image_tag (@recipe.image.url),alt: "アイコン", size: '300x300' %>
