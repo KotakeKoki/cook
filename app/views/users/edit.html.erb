@@ -9,7 +9,7 @@
         <% end %>
         
         <%= form_with(model: @user, local: true)do |f| %>
-          
+          <%= render 'layouts/error_messages', model: f.object %> 
           <%= f.label :image, "写真" %>
           <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
          <br>
