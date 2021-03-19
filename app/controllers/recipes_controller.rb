@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
-  before_action :require_user_logged_in, only: [:new,:create,]
-  before_action :correct_user, only: [:destroy, :edit, :update]
+  before_action :require_user_logged_in, only: [:new,:create,:edit]
+  before_action :correct_user, only: [:destroy,  :update]
 def index
   @recipes = Recipe.all.order(id: :desc).page(params[:page]).per(6)
 end

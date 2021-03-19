@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
-include SessionsHelper
+  
+    include SessionsHelper
+    
     private
 
   def require_user_logged_in
