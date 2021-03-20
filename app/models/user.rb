@@ -43,4 +43,9 @@ class User < ApplicationRecord
   def favoriting?(recipe)
     self.fav_recipes.include?(recipe)
   end
+  
+  def feed_recipes
+    Recipe.where(user_id: self.following_ids + [self.id])
+  end
+
 end

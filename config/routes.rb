@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get :followers
       get :favorites
       post :edit
+      get :tl, to:"tl#index"
       delete :destroy
       patch :update
     end
