@@ -48,6 +48,10 @@ def destroy
   redirect_to recipes_url
 end
 
+def search
+@recipes = Recipe.search(params[:search]).order(id: :desc).page(params[:page]).per(6)
+end
+
 private
 
 def recipe_params
@@ -60,6 +64,5 @@ def correct_user
   redirect_to root_url
   end
 end
-
 
 end
