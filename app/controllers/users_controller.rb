@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show, :edit, :followings, :followers]
-  before_action :correct_user, only: [:destroy,  :update, :edit]
+  before_action :require_user_logged_in, only: [:index, :show, :edit, :followings, :followers, :destroy]
+  before_action :correct_user, only: [:destroy,  :update, :edit, :destroy]
   def index
     @users = User.order(id: :desc).page(params[:page]).per(25)
   end
@@ -18,6 +18,13 @@ class UsersController < ApplicationController
   @user = User.find(params[:id])
   end
   
+  def destroy
+  @user = User.find(params[:id])
+  @user.destroy
+  
+  flash[:success] = "ユーザーを削除しました"
+  redirect_to root_url
+  end
   
   def update
     @user= User.find(params[:id])

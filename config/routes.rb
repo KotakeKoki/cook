@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'signup', to: 'users#new'
   get 'search', to: 'recipes#search'
-  resources :users, only: [:index, :show, :create, :edit, :update] do
+  resources :users do
     member do
       get :followings
       get :followers

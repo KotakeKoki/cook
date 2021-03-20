@@ -26,6 +26,7 @@
         
         <%= f.submit '編集する', class: 'btn btn-primary btn-block' %>
         <% end %>
+        <%= link_to "ユーザーを削除する", @user,method: :delete, data:{ confirm: "本当に削除してよろしいですか？"}%>
       </div>
     </div>
   </div>
