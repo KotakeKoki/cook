@@ -20,6 +20,13 @@
         <li class="nav-item"><%= link_to "レシピの投稿",new_recipe_path %></li>
         <li class="nav-item"><%= link_to "ログアウト",logout_path, method: :delete %></li>
         <% else %>
+          <li class="nav-item mb-0">
+          <%= form_tag search_path, :method => 'get' do %>
+          <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+          </p>
+          <% end %></li>
           <li class="nav-item"><%= link_to "新規登録",signup_path %></li>
           <li class="nav-item"><%= link_to "ログイン",login_path %></li>
         <% end %>
