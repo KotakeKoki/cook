@@ -1,5 +1,6 @@
 class TlController < ApplicationController
-    before_
+    before_action :require_user_logged_in
+    before_action :correct_user
     def index
     if logged_in?
       @recipe = current_user.recipes.build
