@@ -1,38 +1,7 @@
-<h1>レシピ編集ページ</h1>
-
- <%= form_with(model: @recipe, local: true)do |f| %>
-   <%= render 'layouts/error_messages', model: f.object %>
-  <div class="form-group">
-  <%= f.label :image, "写真" %>
-  <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+  <div class="text-left">
+  <h1>レシピ編集ページ</h1>
   </div>
   
-  <div class="form-group">
-  <%= f.label :title, "レシピ名" %>
-  <%= f.text_field :title,size:40 %>
-  </div>
-  
-  <div class="form-group">
-  <%= f.label :ingridient_1, "材料1" %>
-  <%= f.text_field :ingridient_1,size:40 %>
-  </div>
-  
-  <div class="form-group">
-  <%= f.label :ingridient_2, "材料2" %>
-  <%= f.text_field :ingridient_2,size:40 %>
-  </div>
-  
-  <div class="form-group">
-  <%= f.label :description, "このレシピの特徴" %>
-  <%= f.text_area :description, class: "form-control" %>
-  </div>
-  
-  <div class="form-group">
-  <%= f.label :sentence, "作り方" %>
-  <%= f.text_area :sentence, class: "form-control" %>
-  </div>
-  
-  <%= f.submit "投稿" %>
-  <% end %>
+  <%= render"form",recipe: @recipe %>
   
   <%= link_to "レシピに戻る",recipe_path %>

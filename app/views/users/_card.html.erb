@@ -1,0 +1,13 @@
+<div class='row'>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-header">
+        <% if @user.image? %>
+          <%= image_tag @user.image.url, class: "image",alt: "profile" %>
+            <% else %>
+          <img alt="" class="image" src="<%= asset_path 'default.jpg' %>"/>
+         <% end %>
+        <h3 class="card-title"><%=link_to "#{@user.name}",user_path(@user) %>さんのページ</h3>
+        <%= render 'relationships/follow_button', user: @user %>
+      </div>
+    </div>
